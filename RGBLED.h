@@ -70,11 +70,6 @@ public:
 	uint8_t getGValue();  // return current G value
 	uint8_t getBValue();  // return current B value
 
-	// set seed the random function so the random color functions can be used.
-	// Seed can not be provided in the constructor because typically analogRead would be used to provide a seed and
-	// analogRead will not work if used in a global level declaration
-	void initRandom(uint32_t seed);
-
 private:
 
 	// Private methods

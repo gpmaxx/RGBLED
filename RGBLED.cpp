@@ -71,11 +71,6 @@ uint8_t RGBLED::gammaMap(const uint8_t value)
 	return pgm_read_byte(&GAMMA[value]);
 }
 
-void RGBLED::initRandom(uint32_t seed)
-{
-	randomSeed(seed);
-}
-
 void RGBLED::setRandomColor(const bool basicColorsOnly)
 {
 	if (basicColorsOnly) {
