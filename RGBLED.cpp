@@ -81,7 +81,7 @@ void RGBLED::setRandomColor(const bool basicColorsOnly)
 	}
 }
 
-void RGBLED::colorDemo(const uint32_t duration, const uint32_t interval, const bool basicColorsOnly)
+void RGBLED::randomDemo(const uint32_t duration, const uint32_t interval, const bool basicColorsOnly)
 {
 	uint32_t durationTimer = millis();
 	uint32_t intervalTimer = millis();
@@ -91,6 +91,19 @@ void RGBLED::colorDemo(const uint32_t duration, const uint32_t interval, const b
 		setRandomColor(basicColorsOnly);
 		intervalTimer = millis();
 		while ((millis() - intervalTimer) < interval) {}
+	}
+}
+
+void RGBLED::cycleDemo(const uint32_t duration, const uint32_t interval)
+{
+	uint32_t durationTimer = millis();
+	uint8_t index = 0;
+
+	while ((millis() - durationTimer) < duration)
+	{
+		setColor(index);
+		delay(interval);
+		index = (index + 1) % NUM_COLORS;
 	}
 }
 

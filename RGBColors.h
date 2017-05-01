@@ -1,7 +1,9 @@
 #ifndef RGBCOLORS_H
 #define RGBCOLORS_H
 
-const uint8_t PROGMEM COLORS[][3] = {
+const uint8_t NUM_COLORS = 16;
+
+const uint8_t PROGMEM COLORS[NUM_COLORS][3] = {
 {0,0,0}, 	 	// Black
 {255,255,255},	// White
 {255,0,0},		// Red
@@ -37,6 +39,6 @@ const uint8_t PURPLE = 13;
 const uint8_t TEAL = 14;
 const uint8_t NAVY = 15;
 
-const uint8_t NUM_COLORS = 16;
+
 
 #endif

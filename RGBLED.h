@@ -36,9 +36,6 @@ ToDo:	Test invert functionality
 #include <Arduino.h>
 #include <RGBColors.h>
 
-extern const PROGMEM uint8_t COLORS[][3];   // RGB triplets
-extern const PROGMEM uint8_t GAMMA[];       // gamma correction mapping
-
 class RGBLED {
 
 public:
@@ -65,7 +62,9 @@ public:
 
 	// Every interval ms, change the LEDs color to a random color, stop after duration ms
 	// iff basicColorsOnly then only the predefined colors in RGBColor.h will be used
-	void colorDemo(const uint32_t duration,const uint32_t interval,const bool basicColorsOnly);
+	void randomDemo(const uint32_t duration,const uint32_t interval,const bool basicColorsOnly);
+	void cycleDemo(const uint32_t duration,const uint32_t interval);
+
 	uint8_t getRValue();  // return currect R value
 	uint8_t getGValue();  // return current G value
 	uint8_t getBValue();  // return current B value
