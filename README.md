@@ -1,5 +1,8 @@
 # RGBLED
-A basic Arduino library for 4 pronged RGB LEDs with gamma correction support and basic colour names
+A small Arduino library/wrapper for 4 pronged RGB LEDs with gamma correction support and basic colour names.  
+Invert function  support common cathod and common annode. Input pins must be PWM.  
+  
+ToDo:  Some further testing of the invert functions 
 
 
 Example 1
