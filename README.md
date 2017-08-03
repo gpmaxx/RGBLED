@@ -5,15 +5,14 @@ A basic Arduino library for 4 pronged RGB LEDs with gamma correction support and
 
 #include <RGBLED.h>  
 
-// pins must be pwm
+// pins must be pwm  
 // Red pin = 11, Green Pin = 10, Blue pin = 10,  
 // Gamma Correction  off, Invert values off (0 == LED Off, 255 == LED MAX)  
 RGBLED led1(11,10,9,false,false);  
 
-void setup()  
-{  
-    led1.on();             // turns LED on  
-}
+    void setup()  {  
+        led1.on();             // turns LED on  
+    }
 
 void loop()  
 {
