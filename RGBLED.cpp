@@ -24,8 +24,13 @@ void RGBLED::setColors(const uint8_t rValue, const uint8_t gValue, const uint8_t
 	update();
 }
 
+void RGBLED::setColor(const uint8_t stringColor)
+{
+	setColors(getColorPart(stringColor,0),getColorPart(stringColor,1),getColorPart(stringColor,2));
+}
+
 void RGBLED::gammaOn(){ setGamma(true); update();}
-void RGBLED::gammaOff(){ setGamma(false); update(); }
+void RGBLED::gammaOff(){ setGamma(false); }
 
 void RGBLED::on()
 {
@@ -74,43 +79,13 @@ uint8_t RGBLED::gammaMap(const uint8_t value)
 void RGBLED::setRandomColor(const bool basicColorsOnly)
 {
 	if (basicColorsOnly) {
-		setColor(random(NUM_COLORS));
+		setColor(random(RGBLED_NUM_COLORS));
 	}
 	else {
 		setColors(random(255),random(255),random(255));
 	}
 }
 
-void RGBLED::randomDemo(const uint32_t duration, const uint32_t interval, const bool basicColorsOnly)
-{
-	uint32_t durationTimer = millis();
-	uint32_t intervalTimer = millis();
-
-	while ((millis() - durationTimer) < duration)
-	{
-		setRandomColor(basicColorsOnly);
-		intervalTimer = millis();
-		while ((millis() - intervalTimer) < interval) {}
-	}
-}
-
-void RGBLED::cycleDemo(const uint32_t duration, const uint32_t interval)
-{
-	uint32_t durationTimer = millis();
-	uint8_t index = 0;
-
-	while ((millis() - durationTimer) < duration)
-	{
-		setColor(index);
-		delay(interval);
-		index = (index + 1) % NUM_COLORS;
-	}
-}
-
-void RGBLED::setColor(const uint8_t stringColor)
-{
-	setColors(getColorPart(stringColor,0),getColorPart(stringColor,1),getColorPart(stringColor,2));
-}
 
 uint8_t RGBLED::getColorPart(const uint8_t row, const uint8_t col)
 {
@@ -138,4 +113,5 @@ bool RGBLED::getInvertValues(){return _invertValues;} // only set in constructor
 uint8_t RGBLED::getOffValue(){return _offValue;} // only set in consturctor so no set method
 
 void RGBLED::setIsOn(bool value){_isOn = value;}
+bool RGBLED::isOn(){return getIsOn();}
 bool RGBLED::getIsOn(){return _isOn;}
